@@ -78,10 +78,8 @@ pub fn unset_override() {
     SHOULD_COLORIZE.unset_override();
 }
 
-lazy_static! {
 /// The persistent [`ShouldColorize`].
-    pub static ref SHOULD_COLORIZE: ShouldColorize = ShouldColorize::from_env();
-}
+pub static SHOULD_COLORIZE: once_cell::sync::Lazy<ShouldColorize> = once_cell::sync::Lazy::new(|| ShouldColorize::from_env());
 
 impl Default for ShouldColorize {
     fn default() -> ShouldColorize {

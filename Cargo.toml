@@ -1,5 +1,5 @@
 [package]
-name = "colored"
+name = "colors"
 description = "The most simple way to add colors in your terminal"
 version = "2.1.0"
 edition = "2021"
@@ -16,14 +16,10 @@ rust-version = "1.70"
 no-color = []
 
 [dependencies]
-lazy_static = "1"
+once_cell = "1"
 
-[target.'cfg(windows)'.dependencies.windows-sys]
-version = "0.48"
-features = [
-    "Win32_Foundation",
-    "Win32_System_Console",
-]
+[target.'cfg(windows)'.dependencies]
+#windows-sys = { version = "0.48", features = ["Win32_Foundation", "Win32_System_Console"] }
 
 [dev-dependencies]
 ansi_term = "0.12"
