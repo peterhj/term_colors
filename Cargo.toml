@@ -1,5 +1,5 @@
 [package]
-name = "colors"
+name = "term_colors"
 description = "The most simple way to add colors in your terminal"
 version = "2.1.0"
 edition = "2021"
