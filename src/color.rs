@@ -1,3 +1,6 @@
+use crate::color_style::{ColorStyle};
+use crate::style::{Styles};
+
 use std::{borrow::Cow, env, str::FromStr};
 
 /// The 8 standard colors.
@@ -34,6 +37,22 @@ fn truecolor_support() -> bool {
 
 #[allow(missing_docs)]
 impl Color {
+    pub fn normal(&self) -> ColorStyle {
+        ColorStyle{
+            bgcolor: None,
+            fgcolor: Some(*self),
+            style: Styles::Clear,
+        }
+    }
+
+    pub fn bold(&self) -> ColorStyle {
+        ColorStyle{
+            bgcolor: None,
+            fgcolor: Some(*self),
+            style: Styles::Bold,
+        }
+    }
+
     pub fn to_fg_str(&self) -> Cow<'static, str> {
         match *self {
             Color::Black => "30".into(),

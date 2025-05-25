@@ -207,6 +207,11 @@ pub enum Styles {
 }
 
 impl Styles {
+    #[inline]
+    pub fn _to_str<'a>(self) -> &'a str {
+        self.to_str()
+    }
+
     fn to_str<'a>(self) -> &'a str {
         match self {
             Styles::Clear => "", // unreachable, but we don't want to panic

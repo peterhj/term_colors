@@ -35,6 +35,7 @@ extern crate once_cell;
 extern crate rspec;
 
 mod color;
+mod color_style;
 pub mod control;
 mod error;
 mod style;
@@ -53,7 +54,9 @@ use std::{
     ops::{Deref, DerefMut},
 };
 
-pub use style::{Style, Styles};
+pub use self::color::{Color};
+pub use self::color_style::{ColorStyle};
+pub use self::style::{Style, Styles};
 
 /// A string that may have color and/or style applied to it.
 ///
